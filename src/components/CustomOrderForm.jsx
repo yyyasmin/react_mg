@@ -18,31 +18,36 @@ const CustomOrderFormWrapper = styled.form`
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-size: 20px;
-  margin-top: 5px;
+  margin-top: 10px; /* Decreased margin-top */
+  margin-right: 20px; /* Added right margin */
+  margin-left: 20px; /* Added left margin */
 
   div {
     margin-bottom: 20px;
+    text-align: center; /* Center align text within div */
   }
 
   label {
     font-weight: bold;
     font-size: 20px;
+    display: block; /* Ensure label takes full width */
   }
 
   input,
   select {
-    width: 100%;
+    width: calc(100% - 24px); /* Adjusted width to leave space for padding */
     padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin: 0 auto; /* Center align input within its container */
   }
 
   button {
     width: 100%;
-    padding: 15px; /* Increased padding for bigger size */
-    font-size: 20px; /* Increased font size */
-    background-color: #00cc00; /* Green color */
+    padding: 15px;
+    font-size: 20px;
+    background-color: #00cc00;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -137,7 +142,7 @@ const CustomOrderForm = () => {
             <option value="advanced">Advanced</option>
           </select>
         </div>
-        <button type="submit">Place Custom Order</button> {/* Updated button text */}
+        <button type="submit">Place Custom Order</button>
       </CustomOrderFormWrapper>
     </FormContainer>
   );
