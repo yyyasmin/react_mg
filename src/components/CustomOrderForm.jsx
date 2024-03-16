@@ -6,9 +6,12 @@ import { baseUrl } from '../helpers/ServerRoutes';
 
 const FormContainer = styled.div`
   display: flex;
-  justify-content: center;
+
+  justify-content: center; /* Center horizontally */
   align-items: center;
-  height: 80vh;
+
+  height: 60vh;
+
 `;
 
 const CustomOrderFormWrapper = styled.form`
@@ -19,8 +22,11 @@ const CustomOrderFormWrapper = styled.form`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-size: 20px;
   margin-top: 10px; /* Decreased margin-top */
+  margin-bottom: 10px; /* Decreased margin-top */
+
   margin-right: 20px; /* Added right margin */
   margin-left: 20px; /* Added left margin */
+
 
   div {
     margin-bottom: 20px;

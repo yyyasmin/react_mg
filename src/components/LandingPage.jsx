@@ -66,12 +66,12 @@ const GameCardImage = styled.img`
 `;
 
 const GameButton = styled.a`
-  display: inline-block; /* Adjusted display */
+  display: inline-block;
   color: #fff;
   background-color: #007bff;
-  padding: 10px; /* Adjusted padding */
+  padding: 10px;
   text-decoration: none;
-  border-radius: 20px; /* Rounded edges */
+  border-radius: 20px;
   font-weight: bold;
   margin-top: 10px;
 `;
@@ -84,18 +84,18 @@ const CustomOrderButton = styled.button`
   font-size: 18px;
   font-weight: bold;
   border: none;
-  border-radius: 20px; /* Rounded edges */
+  border-radius: 20px;
   cursor: pointer;
   margin-bottom: 10px;
 `;
 
 const CommunityButton = styled(Link)`
-  display: inline-block; /* Adjusted display */
+  display: inline-block;
   color: #fff;
   background-color: #28a745;
-  padding: 10px; /* Adjusted padding */
+  padding: 10px;
   text-decoration: none;
-  border-radius: 20px; /* Rounded edges */
+  border-radius: 20px;
   font-weight: bold;
   margin: 0 auto;
 `;
@@ -107,10 +107,10 @@ const Footer = styled.footer`
 
 const CopyRight = styled.p`
   color: #fff;
-  padding: 5px; /* Adjusted padding */
+  padding: 5px;
   background-color: #000;
   display: inline-block;
-  border-radius: 5px; /* Rounded edges */
+  border-radius: 5px;
 `;
 
 const LandingPage = () => {
