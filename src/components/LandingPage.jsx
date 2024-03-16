@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import CustomOrderForm from './CustomOrderForm';
+import GameCard from './GameCard'; // Importing the new component
+import image_1 from './about_active_litening.JPG';
+import image_2 from './get_to_know.JPG';
+import image_3 from './share_and_listen.JPG';
+import image_4 from './relax_with_midnfullness.JPG';
+
+
 
 // Styled Components
 
@@ -41,39 +48,13 @@ const SectionTitle = styled.h2`
 `;
 
 const Description = styled.p`
-  font-size: 1.1em;
+  font-size: 1.3em;
 `;
 
 const GameCardContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-`;
-
-const GameCard = styled.div`
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  margin: 10px;
-  text-align: center;
-`;
-
-const GameCardImage = styled.img`
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-`;
-
-const GameButton = styled.a`
-  display: inline-block;
-  color: #fff;
-  background-color: #007bff;
-  padding: 10px;
-  text-decoration: none;
-  border-radius: 20px;
-  font-weight: bold;
-  margin-top: 10px;
 `;
 
 const CustomOrderButton = styled.button`
@@ -133,18 +114,30 @@ const LandingPage = () => {
           Enhance communication skills with engaging memory games tailored for specific goals.
         </Description>
         <GameCardContainer>
-          <GameCard>
-            <GameCardImage src="game-image-url" alt="What is Active listening - Play to find out" />
-            <p>Active Listening Adventure</p>
-            <p>What is Active listening and how it relates to communication skills - Play to find out</p>
-            <GameButton href="https://debug3--active-litening.netlify.app" target="_blank" rel="noopener noreferrer">Play Now</GameButton>
-          </GameCard>
-          <GameCard>
-            <GameCardImage src="game-image-url" alt="Sharing and Listening Challenge" />
-            <p>Sharing and Listening Challenge</p>
-            <p>Promote sharing, listening, and collaboration with diadic memory tasks.</p>
-            <GameButton href="https://main--yasmin-mg.netlify.app" target="_blank" rel="noopener noreferrer">Play Now</GameButton>
-          </GameCard>
+          <GameCard
+            title="Active Listening Adventure"
+            description="What is Active listening and how it relates to communication skills - Play to find out"
+            imageUrl={image_1}
+            playUrl="https://main--ng-about.netlify.app"
+          />
+          <GameCard
+            title="Sharing and Listening Challenge"
+            description="Promote sharing, listening, and collaboration with diadic memory tasks."
+            imageUrl={image_2}
+            playUrl="https://main--share-and-listen.netlify.app"
+          />
+          <GameCard
+            title="Sharing and Listening Challenge"
+            description="Promote sharing, listening, and collaboration with diadic memory tasks."
+            imageUrl={image_3}
+            playUrl="https://main--share-and-listen.netlify.app"
+          />
+          <GameCard
+            title="Sharing and Listening Challenge"
+            description="Promote sharing, listening, and collaboration with diadic memory tasks."
+            imageUrl={image_4}
+            playUrl="https://main--share-and-listen.netlify.app"
+          />
           {/* Add more game cards as needed */}
         </GameCardContainer>
       </Section>
