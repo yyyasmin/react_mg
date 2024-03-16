@@ -1,3 +1,5 @@
+// CustomOrderForm.jsx
+
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { baseUrl } from '../helpers/ServerRoutes';
@@ -38,9 +40,9 @@ const CustomOrderFormWrapper = styled.form`
 
   button {
     width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background-color: #10742e;
+    padding: 15px; /* Increased padding for bigger size */
+    font-size: 20px; /* Increased font size */
+    background-color: #00cc00; /* Green color */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -54,7 +56,7 @@ const CustomOrderFormWrapper = styled.form`
 
 const CustomOrderForm = () => {
   const [formData, setFormData] = useState({
-    email: '', // Add email field
+    email: '',
     subject: '',
     ageGroup: '',
     skillLevel: '',
@@ -135,7 +137,7 @@ const CustomOrderForm = () => {
             <option value="advanced">Advanced</option>
           </select>
         </div>
-        <button type="submit">Submit Order</button>
+        <button type="submit">Place Custom Order</button> {/* Updated button text */}
       </CustomOrderFormWrapper>
     </FormContainer>
   );

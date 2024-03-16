@@ -1,30 +1,28 @@
-import React, { useState } from 'react';
+// LandingPage.jsx
 
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
 import CustomOrderForm from './CustomOrderForm.jsx';
 import { baseUrl } from '../helpers/ServerRoutes';
 
 const LandingPage = () => {
-
-  console.log("IN LandingPage")
-
-  const [showForm, setShowForm] = useState(false); // State to manage form visibility
+  const [showForm, setShowForm] = useState(false);
 
   const handleShowForm = () => {
-    setShowForm(true); // Set showForm state to true when link is clicked
+    setShowForm(true);
   };
 
   return (
     <div className="landing-page">
       <header>
         <h1>Play Your Way</h1>
-        <p className="sub-title">Transform Communication Through Play!</p> {/* Updated subtitle */}
+        <p className="sub-title">Transform Communication Through Play!</p>
       </header>
       
       <section className="game-options">
         <h2>Explore Our Memory Match Games</h2>
-        <p className="description">Enhance communication skills with engaging memory games tailored for specific goals.</p> {/* Updated description */}
+        <p className="description">Enhance communication skills with engaging memory games tailored for specific goals.</p>
         <div className="game-cards">
           <div className="game-card">
             <img src="game-image-url" alt="What is Active listening - Play to find out" />
@@ -46,7 +44,7 @@ const LandingPage = () => {
         <h2>Create Your Custom Game</h2>
         <p className="custom-order-description">Order a personalized game for your specific subject, age group, and skill level.</p>
         <button className="community" onClick={handleShowForm}>Place Custom Order</button>
-        {showForm && <CustomOrderForm />} {/* Render the form only when showForm is true */}
+        {showForm && <CustomOrderForm />}
       </section>
 
       <section className="community">
