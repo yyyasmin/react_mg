@@ -124,7 +124,7 @@ const LandingPage = () => {
             title="Sharing and Listening Challenge"
             description="Promote sharing, listening, and collaboration with diadic memory tasks."
             imageUrl={image_2}
-            playUrl="https://main--share-and-listen.netlify.app"
+            playUrl="https://main--mg-intimacy-1.netlify.app"
           />
           <GameCard
             title="Sharing and Listening Challenge"
