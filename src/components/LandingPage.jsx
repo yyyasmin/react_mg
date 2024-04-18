@@ -121,22 +121,22 @@ const LandingPage = () => {
             playUrl="https://main--ng-about.netlify.app"
           />
           <GameCard
-            title="Sharing and Listening Challenge"
-            description="Promote sharing, listening, and collaboration with diadic memory tasks."
+            title="Get to Know Each Other Challenge"
+            description="Promote geting to konw each other while having fun, and collaboration with diadic memory tasks."
             imageUrl={image_2}
+            playUrl="https://main--mg-acquaintance.netlify.app"
+          />
+          <GameCard
+            title="Sharing and Listening Challenge"
+            description="Promote sharing, listening while having fun, and collaboration with diadic memory tasks."
+            imageUrl={image_3}
             playUrl="https://main--mg-intimacy-1.netlify.app"
           />
           <GameCard
-            title="Sharing and Listening Challenge"
-            description="Promote sharing, listening, and collaboration with diadic memory tasks."
-            imageUrl={image_3}
-            playUrl="https://main--share-and-listen.netlify.app"
-          />
-          <GameCard
-            title="Sharing and Listening Challenge"
-            description="Promote sharing, listening, and collaboration with diadic memory tasks."
+            title="mindfulness"
+            description="Promote calm and relaxed mode of well being using mindfulness diadic memory tasks."
             imageUrl={image_4}
-            playUrl="https://main--share-and-listen.netlify.app"
+            playUrl="https://main--mg-mindfulness.netlify.app"
           />
           {/* Add more game cards as needed */}
         </GameCardContainer>
