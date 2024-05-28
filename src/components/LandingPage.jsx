@@ -124,7 +124,7 @@ const LandingPage = () => {
             title="Get to Know Each Other Challenge"
             description="Promote geting to konw each other while having fun, and collaboration with diadic memory tasks."
             imageUrl={image_2}
-            playUrl="https://main--mg-young-kids.netlify.app"
+            playUrl="https://main--mg-any-subject.netlify.app/"
           />
           <GameCard
             title="Sharing and Listening Challenge"
