@@ -1,42 +1,40 @@
 import React, { useState } from 'react';
-import FrameWithImage from './FrameWithImage';
 import HeaderComponent from './Header';
-
 import AnimatedHighlightsSection from './AnimatedHighlightsSection';
 import UserDetailsSection from './UserDetailsSection';
 import CustomOrderSection from './CustomOrderSection';
 import FeaturedGamesSection from './FeaturedGamesSection';
 import CommunitySection from './CommunitySection';
 import FooterComponent from './Footer';
-
+import PartnerProfileSection from './PartnerProfileSection';
 
 const LandingPage = () => {
   const [showUserDetailForm, setShowUserDetailForm] = useState(false);
   const [showCustomOrderForm, setShowCustomOrderForm] = useState(false);
+  const [showPartnerProfileForm, setShowPartnerProfileForm] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
 
-  console.log("IN LandingPage -- reseting formData")
   const [formData, setFormData] = useState({
-    // Initial state structure
     userDetails: {
-      fullName: '',
+      name: '',
       email: '',
-      phone: '',
+      password: '',
     },
     customOrder: {
-      email: '', 
+      email: '',
       ageGroup: '',
       skillLevel: '',
       subject: '',
       customSubject: '',
     },
+    partnerProfile: {
+      partnerDetails: '',
+    },
   });
 
-
   // USER DETAILS
-
   const handleUserDetailsChange = (e) => {
     const { name, value } = e.target;
-    console.log("IN handleUserDetailsChange -- name, value: ", name, value)
     setFormData({
       ...formData,
       userDetails: {
@@ -44,7 +42,6 @@ const LandingPage = () => {
         [name]: value,
       },
     });
-    console.log("IN handleUserDetailsChange -- formData: ", formData)
   };
 
   const handleShowUserDetailForm = () => {
@@ -55,14 +52,12 @@ const LandingPage = () => {
     setShowUserDetailForm(false);
   };
 
-  const handleSubmitUserDetailForm = () => {
+  const handleSubmitUserDetailForm = (email) => {
+    setUserEmail(email);
     setShowUserDetailForm(false);
   };
 
-
-
   // CUSTOM ORDER
-
   const handleCustomOrderChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -75,6 +70,10 @@ const LandingPage = () => {
   };
 
   const handleShowCustomOrderForm = () => {
+    if (!userEmail) {
+      alert("Please complete the 'Yes I do' section first.");
+      return;
+    }
     setShowCustomOrderForm(true);
   };
 
@@ -86,15 +85,33 @@ const LandingPage = () => {
     setShowCustomOrderForm(false);
   };
 
-  
-  console.log("IN landingpage -- BEFORE retrun -- formData.userDetails: ", formData.userDetails)
-  console.log("IN landingpage -- BEFORE retrun -- formData.customOrder: ", formData.customOrder)
+  // PARTNER PROFILE
+  const handlePartnerProfileChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      partnerProfile: {
+        ...formData.partnerProfile,
+        [name]: value,
+      },
+    });
+  };
+
+  const handleShowPartnerProfileForm = () => {
+    if (!userEmail) {
+      alert("Please complete the 'Yes I do' section first.");
+      return;
+    }
+    setShowPartnerProfileForm(true);
+  };
+
+  const handleClosePartnerProfileForm = () => {
+    setShowPartnerProfileForm(false);
+  };
 
   return (
     <>
-      <FrameWithImage />
-      {/* <HeaderComponent /> */}
-
+      <HeaderComponent />
       <AnimatedHighlightsSection />
       <UserDetailsSection
         onShowUserDetailForm={handleShowUserDetailForm}
@@ -108,9 +125,16 @@ const LandingPage = () => {
         onShowCustomOrderForm={handleShowCustomOrderForm}
         onHideCustomOrderForm={handleCloseCustomOrderForm}
         onSubmitCustomOrderForm={handleSubmitCustomOrderForm}
-        formData={formData}
+        formData={formData.customOrder}
         handleChange={handleCustomOrderChange}
         showCustomOrderForm={showCustomOrderForm}
+      />
+      <PartnerProfileSection
+        onShowPartnerProfileForm={handleShowPartnerProfileForm}
+        onHidePartnerProfileForm={handleClosePartnerProfileForm}
+        formData={formData.partnerProfile}
+        handleChange={handlePartnerProfileChange}
+        showPartnerProfileForm={showPartnerProfileForm}
       />
       <FeaturedGamesSection />
       <CommunitySection />
