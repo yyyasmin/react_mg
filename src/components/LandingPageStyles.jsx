@@ -7,25 +7,21 @@ export const Container = styled.div`
   padding: 20px;
   text-align: center;
   background-color: #f8f9fa;
-
 `;
 
 export const Header = styled.header`
   align-items: center;
   text-align: center;
-    margin-bottom:40px;
+  margin-bottom: 40px;
   background-color: #f8f9fa;
-
-
 `;
 
 export const Title = styled.h1`
   font-size: 2.5em;
   align-items: center;
   text-align: center;
-    margin-bottom:40px;
+  margin-bottom: 40px;
   background-color: #f8f9fa;
-
 `;
 
 export const SubTitle = styled.p`
@@ -37,38 +33,28 @@ export const SubTitle = styled.p`
   color: #fff;
   align-items: center;
   text-align: center;
-    margin-bottom:40px;
+  margin-bottom: 40px;
   background-color: #f8f9fa;
-
-
 `;
 
 export const Section = styled.section`
   margin-bottom: 70px;
   align-items: center;
   text-align: center;
-  margin-bottom:40px;
-    background-color: #f8f9fa;
-
+  margin-bottom: 40px;
+  background-color: #f8f9fa;
 `;
 
 export const SectionTitle = styled.h2`
   font-size: 1.8em;
-  // margin-bottom:40px; 
-    background-color: #f8f9fa;
-  
+  background-color: #f8f9fa;
 `;
 
 export const SectionSubTitle = styled.p`
   font-size: 1.5em;
-    // margin-bottom:40px;
-
-   font-weight: bold; /* Bold text */
-    font-size: 1.3rem;
-    color: #333;
-    color: green;
-      background-color: #f8f9fa;
-
+  font-weight: bold;
+  color: green;
+  background-color: #f8f9fa;
 `;
 
 export const Description = styled.p`
@@ -79,11 +65,10 @@ export const GameCardContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-    background-color: #f8f9fa;
-
+  background-color: #f8f9fa;
 `;
 
-export const FormContainer = styled.div` // LandingPageStyles.jsx
+export const FormContainer = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -94,17 +79,13 @@ export const FormContainer = styled.div` // LandingPageStyles.jsx
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 500px;
   z-index: 1000;
-      background-color: #f8f9fa;
-
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
 `;
-
-
 
 export const CommunityButton = styled.button`
   display: inline-block;
   color: #fff;
-  background-color: #8f67d9; /* Purple */
-  background-color: #28a745;  /* green */
+  background-color: #28a745;
   padding: 12px 24px;
   border-radius: 25px;
   text-decoration: none;
@@ -127,7 +108,6 @@ export const CommunityButton = styled.button`
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.1);
   }
 `;
-
 
 export const BookGameButton = styled.button`
   display: inline-block;
@@ -178,8 +158,7 @@ export const CloseButton = styled.button`
 export const Footer = styled.footer`
   margin-top: 20px;
   text-align: center;
-      background-color: #f8f9fa;
-
+  background-color: #f8f9fa;
 `;
 
 export const CopyRight = styled.p`
@@ -198,9 +177,7 @@ export const LandingSection = styled.section`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   align-items: center;
-      background-color: #f8f9fa;
-
-
+  background-color: #f8f9fa;
 `;
 
 const fadeInFromFar = keyframes`
@@ -216,18 +193,17 @@ const fadeInFromFar = keyframes`
 
 export const AnimatedHighlight = styled.div`
   text-align: center;
-    margin-bottom:40px;
-
+  margin-bottom: 40px;
 
   img {
-    width: 250px; /* Adjust size as needed */
+    width: 250px;
     height: auto;
     display: block;
-    margin: 0 auto 10px; /* Center the image */
+    margin: 0 auto 10px;
   }
 
   p {
-    font-weight: bold; /* Bold text */
+    font-weight: bold;
     font-size: 1.25rem;
     color: #333;
     color: red;
@@ -252,8 +228,7 @@ export const Form = styled.form`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 500px;
   margin: 0 auto;
-      background-color: #f8f9fa;
-
+  background-color: #f8f9fa;
 `;
 
 export const Label = styled.label`
@@ -264,8 +239,7 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-      background-color: #f8f9fa;
-
+  background-color: #f8f9fa;
 `;
 
 export const Input = styled.input`

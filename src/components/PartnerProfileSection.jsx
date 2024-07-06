@@ -4,12 +4,16 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { baseUrl } from '../helpers/ServerRoutes';
-import { Section, SectionTitle, SectionSubTitle, BookGameButton } from './LandingPageStyles';
+import { SectionTitle, SectionSubTitle, BookGameButton } from './LandingPageStyles';
 
 const PPSSection = styled.section`
   align-items: center;
   text-align: center;
   margin-bottom: 80px;
+`;
+
+const PartnerProfileModalBody = styled(Modal.Body)`
+  background: linear-gradient(to bottom, purple, green);
 `;
 
 const PartnerProfileSection = ({
@@ -52,7 +56,6 @@ const PartnerProfileSection = ({
     e.preventDefault();
     try {
       await axios.post(`${baseUrl}/submit_partner_profile`, formData);
-      console.log("IN handleSubmitPartnerProfileForm -- formData: ", formData)
       onHidePartnerProfileForm();
       navigate('/desired-page'); // Replace '/desired-page' with the target path
     } catch (error) {
@@ -77,7 +80,7 @@ const PartnerProfileSection = ({
         <Modal.Header closeButton>
           <Modal.Title>Partner Profile</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <PartnerProfileModalBody>
           <Form onSubmit={handleSubmitPartnerProfileForm}>
             <Form.Group controlId="formAgeGroup" className="mb-3">
               <Form.Label>Age Group</Form.Label>
@@ -206,7 +209,7 @@ const PartnerProfileSection = ({
               Get me my perfect playmate
             </Button>
           </Form>
-        </Modal.Body>
+        </PartnerProfileModalBody>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
