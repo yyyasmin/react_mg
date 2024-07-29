@@ -1,7 +1,6 @@
-// AnimatedHighlightsSection.jsx
 import React, { useState, useEffect } from 'react';
-import { Section, AnimatedHighlight } from './LandingPageStyles';
 import styled from 'styled-components';
+import { RedSectionSubTitle } from './LandingPageStyles';
 
 import lineImage1 from '../assets/linesImages/p10.jfif';
 import lineImage2 from '../assets/linesImages/p2.jfif';
@@ -11,7 +10,6 @@ import lineImage5 from '../assets/linesImages/p5.jfif';
 import lineImage6 from '../assets/linesImages/p6.jfif';
 import lineImage7 from '../assets/linesImages/p7.jfif';
 import lineImage8 from '../assets/linesImages/p8.jfif';
-
 
 const lines = [
   { text: 'Having trouble connecting with other people - friends and/or spouses?', img: lineImage1 },
@@ -24,40 +22,88 @@ const lines = [
   { text: 'Choose only hobbies that do not require communication with people?', img: lineImage8 },
 ];
 
-export const LinesSection = styled.section`
-  margin-bottom: 70px;
+const LinesSection = styled.section`
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-bottom: 70px;
   text-align: center;
-  margin-bottom: 50px;
+`;
+
+const AnimatedHighlight = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 1800px;
+  padding: 0 20px; /* Control the margin between the sections */
+  background-color: #f8f9fa;
+
+  img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+`;
+
+const LeftTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0; /* Remove margin */
+  flex: 1;
+  //background-color: orange;
+
+  p {
+    padding-left: 40px;
+    text-align: left;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: red;
+  }
+`;
+
+
+const RightTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  p {
+    padding-left: 50px;
+    text-align: left;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: red;
+  }
 `;
 
 const AnimatedHighlightsSection = () => {
-  const [animationIndex, setAnimationIndex] = useState(0);
-  const [animationStarted, setAnimationStarted] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
 
   useEffect(() => {
-    setAnimationStarted(true);
     const interval = setInterval(() => {
-      setAnimationIndex((prevIndex) => (prevIndex + 1) % lines.length);
-    }, 3000); // Change line every 3 seconds
+      setImageIndex((prevIndex) => (prevIndex + 1) % lines.length);
+    }, 4000); // Change image every 4 seconds
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <LinesSection>
-      {lines.map((line, index) => (
-        <AnimatedHighlight
-          key={index}
-          style={{
-            display: animationIndex === index ? 'block' : 'none',
-            animationDelay: `${index * 9}s`,
-          }}
-        >
-          <img src={line.img} alt="" />
-          <p>{line.text}</p>
-        </AnimatedHighlight>
-      ))}
+      <AnimatedHighlight>
+        <LeftTextContainer>
+            {lines.slice(0, Math.ceil(lines.length / 2)).map((line, index) => (
+              <p key={index}>{line.text}</p>
+            ))}            
+        </LeftTextContainer>
+        <img src={lines[imageIndex].img} alt="" />
+        <RightTextContainer>
+            {lines.slice(Math.ceil(lines.length / 2)).map((line, index) => (
+              <p key={index}>{line.text}</p>
+            ))}
+        </RightTextContainer>
+      </AnimatedHighlight>
     </LinesSection>
   );
 };

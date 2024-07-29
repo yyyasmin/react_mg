@@ -3,7 +3,7 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import axios from 'axios';
 import { baseUrl } from '../helpers/ServerRoutes';
-import { SectionTitle, PurpleSectionSubTitle, CommunityButton } from './LandingPageStyles';
+import { SectionTitle, SectionSubTitle, CommunityButton } from './LandingPageStyles';
 
 const UDSection = styled.section`
   align-items: center;
@@ -11,7 +11,7 @@ const UDSection = styled.section`
   margin-bottom: 80px;
 `;
 
-const UserDetailsSection = ({ onShowUserDetailForm, onHideUserDetailForm, onSubmitUserDetailForm, showUserDetailForm, buttonLabel }) => {
+const UserDetails2Section = ({ onShowUserDetailForm, onHideUserDetailForm, onSubmitUserDetailForm, showUserDetailForm }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,13 +56,14 @@ const UserDetailsSection = ({ onShowUserDetailForm, onHideUserDetailForm, onSubm
   return (
     <UDSection>
       <SectionTitle>
-        Let us know you:
+        can you afford to not use Play your game?
       </SectionTitle>
-      <PurpleSectionSubTitle>
-        Do you want to improve your communication skills and connect better with others?
-      </PurpleSectionSubTitle>
+      <SectionSubTitle>
+		To register to participate in the game at no cost and without obligation - 
+Fill in details here now
+      </SectionSubTitle>
       <CommunityButton onClick={handleShow}>
-        {buttonLabel}
+        Yes, I want to practice communicating with others in a fun way!
       </CommunityButton>
 
       <Modal show={showUserDetailForm} onHide={handleClose} centered>
@@ -93,17 +94,7 @@ const UserDetailsSection = ({ onShowUserDetailForm, onHideUserDetailForm, onSubm
                 required
               />
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
                 Close
@@ -119,4 +110,4 @@ const UserDetailsSection = ({ onShowUserDetailForm, onHideUserDetailForm, onSubm
   );
 };
 
-export default UserDetailsSection;
+export default UserDetails2Section;

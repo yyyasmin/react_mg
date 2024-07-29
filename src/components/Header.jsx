@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/logo.jpg';
+import { SectionSubTitle } from './LandingPageStyles';
+
 
 const FSection = styled.section`
   display: flex;
@@ -10,6 +12,7 @@ const FSection = styled.section`
   text-align: center;
   align-items: center;
   margin-bottom: 80px;
+  // background-color: yellow;
 `;
 
 const EllipseContainer = styled.div`
@@ -39,15 +42,18 @@ const Text = styled.p`
   font-family: 'Comic Sans MS', 'Arial', sans-serif;
 `;
 
-const FrameWithImage = () => {
+const HeaderComponent  = () => {
   return (
     <FSection>
       <EllipseContainer>
           <Image src={logo} alt="Logo" />
       </EllipseContainer>
       {/* <Text>Play Your Way - fun games to improve social skills</Text> */}
+      <SectionSubTitle>
+      The digital game that will get you used to communicating with others and will help you overcome social activities!
+      </SectionSubTitle>
     </FSection>
   );
 };
 
-export default FrameWithImage;
+export default HeaderComponent;

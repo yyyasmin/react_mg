@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import HeaderComponent from './Header';
 import AnimatedHighlightsSection from './AnimatedHighlightsSection';
-import UserDetailsSection from './UserDetailsSection';
+import SolutionTextSection from './SolutionTextSection';
+import TheGameCanDoSection from './TheGameCanDoSection';
+import TheGameIsForSection from './TheGameIsForSection';
+import UserDetailsSection from './UserDetailsSection'; // Only one UserDetailsSection
+import ClosingTextSection from './ClosingTextSection';
 import CustomOrderSection from './CustomOrderSection';
 import FeaturedGamesSection from './FeaturedGamesSection';
 import CommunitySection from './CommunitySection';
@@ -9,8 +13,8 @@ import FooterComponent from './Footer';
 import PartnerProfileSection from './PartnerProfileSection';
 
 const LandingPage = () => {
-  const [showUserDetailForm, setShowUserDetailForm] = useState(false);
-  const [showCustomOrderForm, setShowCustomOrderForm] = useState(false);
+  const [showUserDetailForm1, setShowUserDetailForm1] = useState(false);
+  const [showUserDetailForm2, setShowUserDetailForm2] = useState(false);
   const [showPartnerProfileForm, setShowPartnerProfileForm] = useState(false);
   const [userEmail, setUserEmail] = useState('');
 
@@ -20,19 +24,12 @@ const LandingPage = () => {
       email: '',
       password: '',
     },
-    customOrder: {
-      email: '',
-      ageGroup: '',
-      skillLevel: '',
-      subject: '',
-      customSubject: '',
-    },
     partnerProfile: {
       partnerDetails: '',
     },
   });
 
-  // USER DETAILS
+  // USER DETAILS 1
   const handleUserDetailsChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -44,45 +41,31 @@ const LandingPage = () => {
     });
   };
 
-  const handleShowUserDetailForm = () => {
-    setShowUserDetailForm(true);
+  const handleShowUserDetailForm1 = () => {
+    setShowUserDetailForm1(true);
   };
 
-  const handleCloseUserDetailForm = () => {
-    setShowUserDetailForm(false);
+  const handleCloseUserDetailForm1 = () => {
+    setShowUserDetailForm1(false);
   };
 
-  const handleSubmitUserDetailForm = (email) => {
+  const handleSubmitUserDetailForm1 = (email) => {
     setUserEmail(email);
-    setShowUserDetailForm(false);
+    setShowUserDetailForm1(false);
   };
 
-  // CUSTOM ORDER
-  const handleCustomOrderChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      customOrder: {
-        ...formData.customOrder,
-        [name]: value,
-      },
-    });
+  // USER DETAILS 2
+  const handleShowUserDetailForm2 = () => {
+    setShowUserDetailForm2(true);
   };
 
-  const handleShowCustomOrderForm = () => {
-    if (!userEmail) {
-      alert("Please complete the 'Yes I do' section first.");
-      return;
-    }
-    setShowCustomOrderForm(true);
+  const handleCloseUserDetailForm2 = () => {
+    setShowUserDetailForm2(false);
   };
 
-  const handleCloseCustomOrderForm = () => {
-    setShowCustomOrderForm(false);
-  };
-
-  const handleSubmitCustomOrderForm = () => {
-    setShowCustomOrderForm(false);
+  const handleSubmitUserDetailForm2 = (email) => {
+    setUserEmail(email);
+    setShowUserDetailForm2(false);
   };
 
   // PARTNER PROFILE
@@ -113,22 +96,29 @@ const LandingPage = () => {
     <>
       <HeaderComponent />
       <AnimatedHighlightsSection />
+      <SolutionTextSection />
       <UserDetailsSection
-        onShowUserDetailForm={handleShowUserDetailForm}
-        onHideUserDetailForm={handleCloseUserDetailForm}
-        onSubmitUserDetailForm={handleSubmitUserDetailForm}
+        onShowUserDetailForm={handleShowUserDetailForm1}
+        onHideUserDetailForm={handleCloseUserDetailForm1}
+        onSubmitUserDetailForm={handleSubmitUserDetailForm1}
         formData={formData.userDetails}
         handleChange={handleUserDetailsChange}
-        showUserDetailForm={showUserDetailForm}
+        showUserDetailForm={showUserDetailForm1}
+        buttonLabel="Yes I do!"
       />
-      <CustomOrderSection
-        onShowCustomOrderForm={handleShowCustomOrderForm}
-        onHideCustomOrderForm={handleCloseCustomOrderForm}
-        onSubmitCustomOrderForm={handleSubmitCustomOrderForm}
-        formData={formData.customOrder}
-        handleChange={handleCustomOrderChange}
-        showCustomOrderForm={showCustomOrderForm}
+      <TheGameCanDoSection />
+      <TheGameIsForSection />
+      <UserDetailsSection
+        onShowUserDetailForm={handleShowUserDetailForm2}
+        onHideUserDetailForm={handleCloseUserDetailForm2}
+        onSubmitUserDetailForm={handleSubmitUserDetailForm2}
+        formData={formData.userDetails}
+        handleChange={handleUserDetailsChange}
+        showUserDetailForm={showUserDetailForm2}
+        buttonLabel="Yes, I want to practice communicating with others in a fun way!"
       />
+      <ClosingTextSection />
+      <CustomOrderSection />
       <PartnerProfileSection
         onShowPartnerProfileForm={handleShowPartnerProfileForm}
         onHidePartnerProfileForm={handleClosePartnerProfileForm}

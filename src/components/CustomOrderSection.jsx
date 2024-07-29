@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import styled from 'styled-components';
-import { Section, SectionTitle, SectionSubTitle, BookGameButton } from './LandingPageStyles';
+import axios from 'axios';
+import { baseUrl } from '../helpers/ServerRoutes';
+import { SectionTitle, SectionSubTitle, BookGameButton } from './LandingPageStyles';
 
 const COSection = styled.section`
   align-items: center;
@@ -9,21 +11,38 @@ const COSection = styled.section`
   margin-bottom: 80px;
 `;
 
-const CustomOrderSection = ({
-  onShowCustomOrderForm,
-  onHideCustomOrderForm,
-  onSubmitCustomOrderForm,
-  formData,
-  handleChange,
-  showCustomOrderForm,
-}) => {
-  const handleSubmitCustomOrderForm = (e) => {
-    e.preventDefault();
-    onSubmitCustomOrderForm(e);
+const CustomOrderSection = () => {
+  const [showCustomOrderForm, setShowCustomOrderForm] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    ageGroup: '',
+    skillLevel: '',
+    subject: '',
+    customSubject: ''
+  });
+
+  const handleShow = () => setShowCustomOrderForm(true);
+  const handleClose = () => setShowCustomOrderForm(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
-  const handleClose = () => onHideCustomOrderForm(); // Call onHideCustomOrderForm when closing modal
-  const handleShow = () => onShowCustomOrderForm(); // Call onShowCustomOrderForm to show modal
+  const handleSubmitCustomOrderForm = async (e) => {
+    e.preventDefault();
+    try {
+      console.log("IN handleSubmitCustomOrderForm -- formData:", formData);
+      const response = await axios.post(`${baseUrl}/orders/submit_order`, formData);
+      console.log(response.data); // Log response from the server
+      handleClose();
+    } catch (error) {
+      console.error('Error submitting custom order:', error);
+    }
+  };
 
   return (
     <COSection>

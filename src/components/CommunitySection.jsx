@@ -1,6 +1,6 @@
 // CommunitySection.jsx
 import React from 'react';
-import { Section, SectionTitle, SectionSubTitle, CommunityButton } from './LandingPageStyles';
+import { Section, SectionTitle, PurpleSectionSubTitle, CommunityButton } from './LandingPageStyles';
 import styled from 'styled-components';
 
 const CSection = styled.section`
@@ -14,9 +14,9 @@ const CommunitySection = () => {
   return (
     <CSection>
       <SectionTitle>Join Our Community</SectionTitle>
-      <SectionSubTitle>
+      <PurpleSectionSubTitle>
         Connect with others, share experiences, and get exclusive updates.
-      </SectionSubTitle>
+      </PurpleSectionSubTitle>
       <CommunityButton to="/community">Join Now</CommunityButton>
     </CSection>
   );

@@ -1,4 +1,6 @@
 import styled, { keyframes, css } from 'styled-components';
+import { Button } from 'react-bootstrap';
+
 
 export const Container = styled.div`
   font-family: 'Arial', sans-serif;
@@ -55,6 +57,23 @@ export const SectionSubTitle = styled.p`
   font-weight: bold;
   color: green;
   background-color: #f8f9fa;
+`;
+
+export const PurpleSectionSubTitle = styled.p`
+  font-size: 1.5em;
+  font-weight: bold;
+  color: purple;
+`;
+export const GreenSectionSubTitle = styled.p`
+  font-size: 1.5em;
+  font-weight: bold;
+  color: green;
+`;
+
+export const RedSectionSubTitle = styled.p`
+  font-size: 1.3em;
+  font-weight: bold;
+  color: red;
 `;
 
 export const Description = styled.p`
@@ -180,7 +199,7 @@ export const LandingSection = styled.section`
   background-color: #f8f9fa;
 `;
 
-const fadeInFromFar = keyframes`
+export const fadeInFromFar = keyframes`
   from {
     opacity: 0;
     transform: scale(0.5);
@@ -191,75 +210,89 @@ const fadeInFromFar = keyframes`
   }
 `;
 
-export const AnimatedHighlight = styled.div`
-  text-align: center;
-  margin-bottom: 40px;
-
-  img {
-    width: 250px;
-    height: auto;
-    display: block;
-    margin: 0 auto 10px;
-  }
-
-  p {
-    font-weight: bold;
-    font-size: 1.25rem;
-    color: #333;
-    color: red;
-  }
+export const ImageContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 `;
 
-export const EvenHighlight = styled(AnimatedHighlight)`
-  background-color: #f9defd;
+export const OverlayText = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.5em;
 `;
 
-export const OddHighlight = styled(AnimatedHighlight)`
-  background-color: #f7f7f7;
-`;
-
-export const Form = styled.form`
+export const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const DatePickerContainer = styled.div`
+  margin-bottom: 20px;
+  text-align: left;
+`;
+
+export const TimePickerContainer = styled.div`
+  margin-bottom: 20px;
+  text-align: left;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const Column = styled.div`
+  flex: 1;
+  padding: 10px;
+`;
+
+export const Icon = styled.div`
+  font-size: 1.5em;
+  color: #333;
+`;
+
+export const Card = styled.div`
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: #f8f9fa;
+  margin-bottom: 20px;
+  text-align: left;
 `;
 
-export const Label = styled.label`
+export const CardTitle = styled.h4`
+  font-size: 1.3em;
   margin-bottom: 10px;
-  font-size: 1.2em;
   color: #333;
-  width: 100%;
+`;
+
+export const CardText = styled.p`
+  font-size: 1em;
+  color: #555;
+`;
+
+
+export const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: #f8f9fa;
+  justify-content: flex-end;
+  margin-top: 20px;
 `;
 
-export const Input = styled.input`
-  padding: 8px;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  margin-top: 5px;
+export const SubmitButton = styled(Button)`
+  margin-left: 10px;
 `;
 
-export const Select = styled.select`
-  padding: 8px;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  margin-top: 5px;
-`;
 
-export const BigLine = styled.p`
-  font-size: 1.5em;
-`;
+
+export const AnimatedHighlight = styled.div

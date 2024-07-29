@@ -3,7 +3,7 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import axios from 'axios';
 import { baseUrl } from '../helpers/ServerRoutes';
-import { SectionTitle, PurpleSectionSubTitle, CommunityButton } from './LandingPageStyles';
+import { SectionTitle, SectionSubTitle, CommunityButton } from './LandingPageStyles';
 
 const UDSection = styled.section`
   align-items: center;
@@ -11,7 +11,17 @@ const UDSection = styled.section`
   margin-bottom: 80px;
 `;
 
-const UserDetailsSection = ({ onShowUserDetailForm, onHideUserDetailForm, onSubmitUserDetailForm, showUserDetailForm, buttonLabel }) => {
+const solutionsText = `
+  It's time<br />
+  use the innovative digital memory game - <br />
+  Play Your Way – <br />
+  The game that will allow you <br />
+  Get to know others without pressure<br />
+  and develop social skills <br />
+  In the most friendly and efficient way!
+`;
+
+const UserDetailsSection = ({ onShowUserDetailForm, onHideUserDetailForm, onSubmitUserDetailForm, showUserDetailForm }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,62 +66,52 @@ const UserDetailsSection = ({ onShowUserDetailForm, onHideUserDetailForm, onSubm
   return (
     <UDSection>
       <SectionTitle>
-        Let us know you:
+        If you answered "yes" to one or more of these questions:
       </SectionTitle>
-      <PurpleSectionSubTitle>
-        Do you want to improve your communication skills and connect better with others?
-      </PurpleSectionSubTitle>
-      <CommunityButton onClick={handleShow}>
-        {buttonLabel}
-      </CommunityButton>
+      <SectionSubTitle dangerouslySetInnerHTML={{ __html: solutionsText }} />
+      <Button variant="primary" onClick={handleShow}>
+        Register
+      </Button>
 
-      <Modal show={showUserDetailForm} onHide={handleClose} centered>
+      <Modal show={showUserDetailForm} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>User Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmitUserDetailForm}>
-            <Form.Group controlId="formBasicName">
+            <Form.Group controlId="formName">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter your name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
               />
             </Form.Group>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter your email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group controlId="formPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 required
               />
             </Form.Group>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <CommunityButton type="submit">
-                Submit
-              </CommunityButton>
-            </Modal.Footer>
+            <Button variant="primary" type="submit">
+              Register
+            </Button>
           </Form>
         </Modal.Body>
       </Modal>
