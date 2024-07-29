@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { baseUrl } from '../helpers/ServerRoutes';
 import { SectionTitle, PurpleSectionSubTitle, BookGameButton } from './LandingPageStyles';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+// import 'react-datepicker/dist/react-datepicker.css';
 
 const PPSSection = styled.section`
   align-items: center;
