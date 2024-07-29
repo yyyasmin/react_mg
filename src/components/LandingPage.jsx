@@ -1,3 +1,4 @@
+//LandingPage.jsx
 import React, { useState } from 'react';
 import HeaderComponent from './Header';
 import AnimatedHighlightsSection from './AnimatedHighlightsSection';
